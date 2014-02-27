@@ -18,7 +18,6 @@ post '/events' do
   if @event.valid?
     redirect "/events/#{@event.id}/show"
   else
-    @errors = @event.errors.messages
     erb :"/events/new"
   end
 end
