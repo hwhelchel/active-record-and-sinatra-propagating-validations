@@ -1,16 +1,14 @@
-<% if @errors %>
-  <%= erb :"events/errors" %>
-<% end %>
+<%= erb :"events/errors" if @event %>
 
 <h3>Enter the details of your event:</h3>
   <form action="/events" method="post">
       <label for="email">Organizer Email:</label>
-        <input type="text" id="email" name="event[organizer_email]">
+        <input type="text" id="email" value="<%= @event.organizer_email if @event && @event.organizer_email %>" name="event[organizer_email]">
       <label for="title">Event Title:</label>
-        <input type="text" id="title" name="event[title]">
+        <input type="text" value="<%= @event.title if @event && @event.title %>" id="title" name="event[title]">
       <label for="name">Organizer Name:</label>
-        <input id="name" type="text" name="event[organizer_name]">
+        <input id="name" value="<%= @event.organizer_name if @event && @event.organizer_name %>" type="text" name="event[organizer_name]">
       <label for="date">Event Date:</label>
-        <input id="date" type="date" name="event[date]">
+        <input id="date" value="<%= @event.date if @event && @event.date %>" type="date" name="event[date]">
       <input type="submit" value="Submit!" class="submit">
   </form>
