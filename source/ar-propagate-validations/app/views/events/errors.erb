@@ -1,0 +1,9 @@
+<div class="container error">
+  <% @errors.each do |key, values| %>
+    <% values.each do |value| %>
+  <ul>
+    <li><%= "#{key.to_s} #{value}" %></li>
+  </ul>
+    <% end %>
+  <% end %>
+</div>

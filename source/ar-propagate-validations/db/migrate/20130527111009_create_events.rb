@@ -4,5 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :organizer_name, :organizer_email, :title
       t.date :date
     end
+
+    add_index :events, :title, unique: true
   end
 end
